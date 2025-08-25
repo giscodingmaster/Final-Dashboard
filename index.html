@@ -200,13 +200,13 @@
 // قم بتحديث الأرقام في هذا القسم فقط.
 // لا تحتاج لحساب "بحاجة لتحقق" أو "نسبة المطابقة"، سيتم حسابها تلقائياً.
 const reportConfig = {
-    teams: 11, // عدد الفرق الميدانية
-    dailyRate: 200, // عدد الحالات التي ينجزها الفريق الواحد يومياً
+    teams: 10, // عدد الفرق الميدانية
+    dailyRate: 60, // عدد الحالات التي ينجزها الفريق الواحد يومياً
 };
 
 const reportData = [
     { governorate: "المنوفية", rawRecords: 426923, uniqueCustomers: 145120, matched: 93843 },
-    { governorate: "القليوبية", rawRecords: 236804, uniqueCustomers: 64764,  matched: 20932 },
+    { governorate: "القليوبية", rawRecords: 236804, uniqueCustomers: 64764,  matched: 23339 },
     { governorate: "الدقهلية", rawRecords: 106043, uniqueCustomers: 38368,  matched: 13452 },
     { governorate: "الغربية",   rawRecords: 70869,  uniqueCustomers: 25642,  matched: 13092 },
     { governorate: "الإسكندرية", rawRecords: 34371,  uniqueCustomers: 13253,  matched: 12907 },
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const fieldworkDays = Math.ceil(totalNeedsVerification / (reportConfig.teams * reportConfig.dailyRate));
     document.getElementById('fieldwork-days').textContent = formatNumber(fieldworkDays);
-    document.getElementById('fieldwork-assumptions-text').innerHTML = `(بناءً على افتراض وجود <strong>فريق بكل محافظة (${reportConfig.teams} فريق)</strong>، كل فريق ينجز <strong>${reportConfig.dailyRate}</strong> حالة يومياً)`;
+    document.getElementById('fieldwork-assumptions-text').innerHTML = `(بناءً على افتراض وجود <strong>${reportConfig.teams} فرق</strong>، كل فريق ينجز <strong>${reportConfig.dailyRate}</strong> حالة يومياً)`;
 
     // 4. تعبئة جدول المحافظات
     const tableBody = document.getElementById('governorates-table-body');
